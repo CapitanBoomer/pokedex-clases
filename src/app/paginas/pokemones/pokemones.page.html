@@ -9,12 +9,15 @@
 
        <form [formGroup]="formulario" novalidate>
     <ion-searchbar animated="true" placeholder="nombre"
-    formControlName="nombrePokemon">
+    formControlName="nombrePokemon" color="danger">
 
     </ion-searchbar>
+    <p *ngIf="!formulario.get('nombrePokemon').valid && formulario.get('nombrePokemon').errors.required && formulario.get('nombrePokemon').touched && formulario.get('nombrePokemon').dirty "  color="red">se requiere completar los datos</p>
+
     {{formulario.get('nombrePokemon').value}}
     {{formulario.get('nombrePokemon').valid}}
     {{formulario.get('nombrePokemon').errors |json}}
+    {{formulario.get('nombrePokemon').dirty}}
   </form>
     <ion-card-content>
 
